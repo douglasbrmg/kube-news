@@ -29,3 +29,5 @@ docker container run -d -p 8080:8080 -e DB_DATABASE=kubenews -e DB_USERNAME=kube
 
 docker container run -d -p 5432:5432 --name kube_news_db -e POSTGRES_PASSWORD=Pg123 -e POSTGRES_USER=kubenews -e POSTGRES_DB=kubenews --network kube_news_net -v kube_news_vol:/var/lib/postgresql/data postgres:12.17
 
+### Execução com compose
+docker compose up -d
