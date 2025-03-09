@@ -16,13 +16,16 @@ DB_HOST => Endereço do banco de dados.
 
 
 
-#Comandos docker Uteis
-###Comando de build
+# Comandos docker Uteis
+### Comando de build
+
 docker build -t dgsbarbosa/kube-news:v1 -f src/Dockerfile src/
 
-###Execução do app
+### Execução do app
+
 docker container run -d -p 8080:8080 -e DB_DATABASE=kubenews -e DB_USERNAME=kubenews -e DB_PASSWORD=Pg123 -e DB_HOST=kube_news_db --network kube_news_net  dgsbarbosa/kube-news:v1
 
-###Execução do db
+### Execução do db
+
 docker container run -d -p 5432:5432 --name kube_news_db -e POSTGRES_PASSWORD=Pg123 -e POSTGRES_USER=kubenews -e POSTGRES_DB=kubenews --network kube_news_net -v kube_news_vol:/var/lib/postgresql/data postgres:12.17
 
